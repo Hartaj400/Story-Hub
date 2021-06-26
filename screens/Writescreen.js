@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {Header} from 'react-native-elements';
 import {TextInput} from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -34,6 +34,15 @@ export default class Writescreen extends React.Component {
                     value={this.state.title}
                    
                     placeholderTextColor='black'/>
+                    <TextInput placeholder="Author" onChangeText= {(text)=>{
+                         this.setState({ author: text }) }}
+                          placeholderTextColor='black' value={this.state.author} style={styles.author} />
+                           <TextInput placeholder="Write your story" onChangeText= {(text)=>{
+                                this.setState({ storyText: text }) }}
+                                placeholderTextColor='black' value={this.state.storyText}
+                                 style={styles.storyText} multiline={true}/> 
+                                 <TouchableOpacity style={styles.submitButton} >
+                                      <Text style={styles.buttonText}>Submit</Text> </TouchableOpacity>
             </View>
             </SafeAreaProvider>
         );
